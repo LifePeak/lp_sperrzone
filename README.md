@@ -156,9 +156,9 @@ It is recommended to use a lp_notify as Notification-System.
 <!-- USAGE EXAMPLES -->
 ## Usage to create / delete mobile speed camera
 1. Type ```lua /sperrzone {radius} {length} {location} ``` to create a resticet Zone at your position.
-Type ```lua /sperrzonewp {radius} {length} {location} ``` to create a resticet Zone by using your Map Waypoint.
-Type ```lua /rsperrzone {location} ``` to remove an existing resticet Zone.
-Type ```lua /rallsperrzone ``` to remove an all existing resticet Zones.
+2. Type ```lua /sperrzonewp {radius} {length} {location} ``` to create a resticet Zone by using your Map Waypoint.\
+3. Type ```lua /rsperrzone {location} ``` to remove an existing resticet Zone.\
+4. Type ```lua /rallsperrzone ``` to remove an all existing resticet Zones.\
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
