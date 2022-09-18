@@ -7,7 +7,6 @@ Locales['de'] = {
     ------------------------------------------------[ general ]-----------------------------------------------------------
         ['max_lenght']                  = 'Du darfst keine Sperrzone länger als %s Sekunden erstellen.',
         ['max_radius']                  = 'Du darfst keine Sperrzone größer als  %s Meter erstellen.',
-        ['max_radius']                  = 'Du darfst keine Sperrzone größer als  %s Meter erstellen.',
         ['require_waypoint']            = 'Du musst ein Waypoint gesetzt haben, damit du die Funktion benutzen kannst.',
     ------------------------------------------------[ chat Suggestion ]---------------------------------------------------
         ['chat_suggestion_command_waypoint_title'] = '/%s Erstelle eine Sperrzone.',
@@ -23,5 +22,4 @@ Locales['de'] = {
         ['showAdvancedNotification_subject']                = 'Information',
         ['showAdvancedNotification_msg_new_sperrzone']      = '~o~ %s ~s~ ist nun eine ~r~Sperrzone~s~. Im Radius von ~r~  %s m~s~ ist mit Beschuss zu rechnen.',
         ['showAdvancedNotification_msg_revoke_sperrzone']   = 'Die Sperrzone bei ~o~ %s ~s~ ist nun aufgehoben.',
-
 }

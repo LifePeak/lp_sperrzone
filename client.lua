@@ -4,7 +4,7 @@ Citizen.CreateThread(function()
       TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
       Citizen.Wait(0)
       end
-end)  
+end)
 
 local Sperrzonen = {}
 
@@ -86,19 +86,19 @@ RegisterCommand(Config.Command, function(source, args, rawCommand)
     local length = tonumber(args[2])
     local locationName = args[3]
 
-    if radius == nil then 
+    if radius == nil then
         notificationHandler("exclamation triangle",_U('require_args'),_U('require_radius'),"red","error.mp3")
-        return 
+        return
     end
-    if length == nil then 
+    if length == nil then
         notificationHandler("exclamation triangle",_U('require_args'),_U('require_length'),"red","error.mp3")
     return end
-    if locationName == nil then 
+    if locationName == nil then
         notificationHandler("exclamation triangle",_U('require_args'),_U('require_location_name'),"red","error.mp3")
         return
     end
 
-    if length > Config.MaxTime then 
+    if length > Config.MaxTime then
         notificationHandler("exclamation triangle",_U('require_args'),_U('max_lenght',Config.MaxTime),"red","error.mp3")
         return
     end
@@ -123,7 +123,7 @@ RegisterCommand(Config.CommandWayPoint, function(source, args, rawCommand)
     local locationName = args[3]
 
     if radius == nil then
-        notificationHandler("exclamation triangle",_U('require_args'),_U('require_radius'),"red","error.mp3") 
+        notificationHandler("exclamation triangle",_U('require_args'),_U('require_radius'),"red","error.mp3")
         return end
     if length == nil then
         notificationHandler("exclamation triangle",_U('require_args'),_U('require_length'),"red","error.mp3")
@@ -144,7 +144,7 @@ RegisterCommand(Config.CommandWayPoint, function(source, args, rawCommand)
     local WaypointBlip = GetFirstBlipInfoId( 8 )
 
     if WaypointBlip ~= 0 then
-        local coords = Citizen.InvokeNative( 0xFA7C7F0AADF25D09, WaypointBlip, Citizen.ResultAsVector( ) ) 
+        local coords = Citizen.InvokeNative( 0xFA7C7F0AADF25D09, WaypointBlip, Citizen.ResultAsVector( ) )
         
         TriggerServerEvent('lp_sperrzone:create', coords, radius, length, locationName)
     else
@@ -184,17 +184,17 @@ end, false)
 TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_waypoint_title',Config.CommandWaypoint), {
     { name = "{radius}", help = _U('chat_suggestion_command_arg_radius') },
     { name = "{length}", help = _U('chat_suggestion_command_arg_length') },
-    { name = "{ort}",    help = _U('chat_suggestion_command_arg_location') },
+    { name = "{location}",    help = _U('chat_suggestion_command_arg_location') },
 })
 
 TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_sperrzone_title',Config.Command), {
     { name = "{radius}", help = _U('chat_suggestion_command_arg_radius') },
     { name = "{length}", help = _U('chat_suggestion_command_arg_length') },
-    { name = "{ort}",    help = _U('chat_suggestion_command_arg_location') },
+    { name = "{location}",    help = _U('chat_suggestion_command_arg_location') },
 })
 
 TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_removesperrzone_title',Config.CommandRemove), {
-    { name = "{ort}", help = _U('chat_suggestion_command_arg_location_remove') },
+    { name = "{location}", help = _U('chat_suggestion_command_arg_location_remove') },
 })
 
 TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_arg_location_remove',Config.CommandRemoveAll), {})
