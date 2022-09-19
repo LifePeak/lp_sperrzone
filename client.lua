@@ -1,29 +1,29 @@
+------------------------------------| Variable Declaration |---------------------------------
+local Sperrzonen = {}
 local ESX = nil
+------------------------------------| Initial ESX |------------------------------------------
 Citizen.CreateThread(function()
     while ESX == nil do
       TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
       Citizen.Wait(0)
       end
 end)
-
-local Sperrzonen = {}
-
-
--- Lib Functions
+------------------------------------| Usfull Functions |-------------------------------------
 local function ImACop()
     local playerdata = ESX.GetPlayerData()
-    local isCop = false
+    local rc = false -- returncode
 
+    -- check if player is an Cop
     for k, v in ipairs(Config.PoliceJobs) do
         if v == playerdata.job.name then
-            isCop = true
+            rc = true
             break
         end
     end
 
-    return isCop
+    return rc
 end
-
+-- check if Sperrzone with server 
 local function IsSperrzoneLocalSynced(info)
     for k, v in pairs(Sperrzonen) do
         if v.id == info.id then
@@ -41,12 +41,9 @@ function notificationHandler(icon,title,msg,color,sound)
 		TriggerEvent("lifepeak.notify",icon,title,msg,color,true,Config.Notification.Postion,Config.Notification.displaytime,sound)
 	end
 end
--- Register Net Events
-RegisterNetEvent('lp_sperrzone:render')
-RegisterNetEvent('lp_sperrzone:expire')
-RegisterNetEvent('esx:playerLoaded')
+------------------------------------| Register Net Events |-------------------------------------
 
-AddEventHandler('lp_sperrzone:render', function(info)
+RegisterNetEvent('lp_sperrzone:render', function(info)
     if not IsSperrzoneLocalSynced(info) then
         --print("Sperrzone will be created locally")
         SperrzoneBlip = AddBlipForRadius(info.coords.x, info.coords.y, info.coords.z, info.radius+0.0)
@@ -62,7 +59,7 @@ AddEventHandler('lp_sperrzone:render', function(info)
     end
 end)
 
-AddEventHandler('lp_sperrzone:expire', function(info)
+RegisterNetEvent('lp_sperrzone:expire', function(info)
     if IsSperrzoneLocalSynced(info) then
         for k, v in ipairs(Sperrzonen) do
             if v.id == info.id then
@@ -73,9 +70,10 @@ AddEventHandler('lp_sperrzone:expire', function(info)
     end
 end)
 
-AddEventHandler('esx:playerLoaded', function(playerData)
+RegisterNetEvent('esx:playerLoaded', function(playerData)
     TriggerServerEvent('lp_sperrzone:get_all_sperrzonen')
 end)
+------------------------------------| Register Commands |-------------------------------------
 
 RegisterCommand(Config.Command, function(source, args, rawCommand)
     if not ImACop() then
@@ -180,6 +178,7 @@ RegisterCommand(Config.CommandRemoveAll, function(source, args, rawCommand)
         TriggerServerEvent('lp_sperrzone:revoke', v)
     end
 end, false)
+------------------------------------| Chat Suggestion |-------------------------------------
 
 TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_waypoint_title',Config.CommandWaypoint), {
     { name = "{radius}", help = _U('chat_suggestion_command_arg_radius') },
