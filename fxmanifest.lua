@@ -1,29 +1,28 @@
--- 
--- Truck Deliveries by SeaLife
---
+-- Resource Metadata
+fx_version 'cerulean'
+games {'gta5'}
+author 'ZickZackHD <ZickZackHD#4834>, SeaLife'
+description "lp_sperrzone is an simple all in one Skript to manage resticet zones"
+version "1.0.0"
+name "lp_sperrzone"
+url 'https://github.com/zickzackhd'
+lua54 'yes'
 
-name "Sperrzone"
-
-description "Sperrzone auf der Karte"
-
-author "SeaLife"
-
-version "1.0.0-SNAPSHOT"
-
-url "https://r3ktm8.de"
+shared_script {
+	'config.lua'
+}
 
 client_script {
-	"config.lua",
+    "@es_extended/locale.lua",
 	"client/main.lua"
 }
 
 server_script {
-    "config.lua",
+    "@es_extended/locale.lua",
     "server/main.lua"
 }
 
-fx_version 'cerulean'
+dependencies {
+	'es_extended'
+}
 
-lua54 'yes'
-
-game "gta5"
