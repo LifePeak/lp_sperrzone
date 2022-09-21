@@ -145,7 +145,9 @@ You can configurate the used notifaction System and many more.
 <a href="./preview/sperrzone_removeall.png">
 <img src="./preview/sperrzone_removeall.png" width="280" height="150"/>
 </a>
+
 #### If a cop is inside a marker, it always gets renewed if time to expire.
+
 ### Installation
 
 1. Download the Script at [Lifepeak-Gitlab](https://gitlab.lifepeak.de/lifepeak-freescripts/lp_sperrzone) and drag the lp_sperrzone folder into your resources folder.
