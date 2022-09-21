@@ -118,8 +118,34 @@ We're currently supporting this platforms if you have any Questions regarding Li
 lp_sperrzone is an simple all in one Skript to manage resticet zones, like crime scene.
 You can configurate the used notifaction System and many more.
 
+### Preview
+<a href="./preview/sperrzone.png">
+<img src="./preview/sperrzone.png" width="280" height="150"/>
+</a>
+<a href="./preview/sperrzone_msg.png">
+<img src="./preview/sperrzone_msg.png" width="280" height="150"/>
+</a>
 
+<a href="./preview/sperrzone_map.png">
+<img src="./preview/sperrzone_map.png" width="280" height="150"/>
+</a>
 
+<a href="./preview/sperrzone_marker.png">
+<img src="./preview/sperrzone_marker.png" width="280" height="150"/>
+</a>
+<a href="./preview/sperrzone_marker_2.png">
+<img src="./preview/sperrzone_marker_2.png" width="280" height="150"/>
+</a>
+<a href="./preview/sperrzone_remove.png">
+<img src="./preview/sperrzone_remove.png" width="280" height="150"/>
+</a>
+<a href="./preview/sperrzone_remove_msg.png">
+<img src="./preview/sperrzone_remove_msg.png" width="280" height="150"/>
+</a>
+<a href="./preview/sperrzone_removeall.png">
+<img src="./preview/sperrzone_removeall.png" width="280" height="150"/>
+</a>
+#### If a cop is inside a marker, it always gets renewed if time to expire.
 ### Installation
 
 1. Download the Script at [Lifepeak-Gitlab](https://gitlab.lifepeak.de/lifepeak-freescripts/lp_sperrzone) and drag the lp_sperrzone folder into your resources folder.

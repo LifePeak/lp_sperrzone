@@ -17,6 +17,6 @@ Config.RenewalTime = 60 * 3   -- Time in seconds the Sperrzone will be renewed i
 
 
 Config.Notification = {}
-Config.Notification.System = 'none' -- none / lp_notify
+Config.Notification.System = 'lp_notify' -- none / lp_notify
 Config.Notification.displaytime = 1300 --ms
 Config.Notification.Postion = "top right" -- Only works lp_notify! | lp_"top right", [top Left, top Right, bottom Left, bottom Right]
