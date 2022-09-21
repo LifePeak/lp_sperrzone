@@ -14,15 +14,16 @@ shared_script {
 
 client_script {
     "@es_extended/locale.lua",
-	"client/main.lua"
+    'locales/*.lua',
+	"client.lua"
 }
 
 server_script {
     "@es_extended/locale.lua",
-    "server/main.lua"
+    "locales/*.lua",
+    "server.lua"
 }
 
 dependencies {
 	'es_extended'
 }
-

@@ -35,8 +35,8 @@ end
 
 -- notification Handler
 function notificationHandler(icon,title,msg,color,sound)
-	if Config.NotificationSystem ~= 'lp_notify' then
-		ESX.ShowNotification(title..", "..msg, Config.Notification.displaytime, "info")
+	if Config.Notification.System ~= 'lp_notify' then
+		ESX.ShowNotification(title..", "..msg)
 	else
 		TriggerEvent("lifepeak.notify",icon,title,msg,color,true,Config.Notification.Postion,Config.Notification.displaytime,sound)
 	end
@@ -76,10 +76,11 @@ end)
 ------------------------------------| Register Commands |-------------------------------------
 
 RegisterCommand(Config.Command, function(source, args, rawCommand)
+    
     if not ImACop() then
+       
         return
     end
-
     local radius = tonumber(args[1])
     local length = tonumber(args[2])
     local locationName = args[3]
@@ -97,10 +98,12 @@ RegisterCommand(Config.Command, function(source, args, rawCommand)
     end
 
     if length > Config.MaxTime then
+        print("!A4")
         notificationHandler("exclamation triangle",_U('require_args'),_U('max_lenght',Config.MaxTime),"red","error.mp3")
         return
     end
     if radius > Config.MaxRadius then
+        print("!A5")
         notificationHandler("exclamation triangle",_U('require_args'),_U('max_radius',Config.MaxRadius),"red","error.mp3")
         return
     end
@@ -179,21 +182,17 @@ RegisterCommand(Config.CommandRemoveAll, function(source, args, rawCommand)
     end
 end, false)
 ------------------------------------| Chat Suggestion |-------------------------------------
-
-TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_waypoint_title',Config.CommandWaypoint), {
-    { name = "{radius}", help = _U('chat_suggestion_command_arg_radius') },
-    { name = "{length}", help = _U('chat_suggestion_command_arg_length') },
-    { name = "{location}",    help = _U('chat_suggestion_command_arg_location') },
+TriggerEvent('chat:addSuggestion', tostring("/".. Config.CommandWayPoint), _U('chat_suggestion_command_waypoint_title',Config.CommandWayPoint), {
+    { name = "radius", help = _U('chat_suggestion_command_arg_radius') },
+    { name = "length", help = _U('chat_suggestion_command_arg_length') },
+    { name = "location", help = _U('chat_suggestion_command_arg_location') }
 })
-
-TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_sperrzone_title',Config.Command), {
-    { name = "{radius}", help = _U('chat_suggestion_command_arg_radius') },
-    { name = "{length}", help = _U('chat_suggestion_command_arg_length') },
-    { name = "{location}",    help = _U('chat_suggestion_command_arg_location') },
+TriggerEvent('chat:addSuggestion', tostring("/".. Config.Command), _U('chat_suggestion_command_sperrzone_title',Config.Command), {
+    { name = "radius", help = _U('chat_suggestion_command_arg_radius') },
+    { name = "length", help = _U('chat_suggestion_command_arg_length') },
+    { name = "location", help = _U('chat_suggestion_command_arg_location') }
 })
-
-TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_removesperrzone_title',Config.CommandRemove), {
-    { name = "{location}", help = _U('chat_suggestion_command_arg_location_remove') },
+TriggerEvent('chat:addSuggestion', tostring("/".. Config.CommandRemove), _U('chat_suggestion_command_removesperrzone_title',Config.CommandRemove), {
+    { name = "location", help = _U('chat_suggestion_command_arg_location_remove') }
 })
-
-TriggerEvent("chat:addSuggestion", _U('chat_suggestion_command_arg_location_remove',Config.CommandRemoveAll), {})
+TriggerEvent('chat:addSuggestion', tostring("/".. Config.CommandRemoveAll), _U('chat_suggestion_command_arg_location_remove',Config.CommandRemoveAll), {})
