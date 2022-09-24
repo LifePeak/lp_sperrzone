@@ -10,7 +10,10 @@
   </a>
 
   <h3 align="center">LifePeak - Skripts</h3>
-
+  <a href="https://tinyurl.com/lifepeak">
+  <img src="https://badgen.net/discord/members/G9zzDPvF4Y"> </img>
+  </a>
+  
   <p align="center">
     Any fool can write code that a computer can understand. Good programmers write code that humans can understand!
     <br />
