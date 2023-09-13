@@ -1,6 +1,5 @@
-
 variables:
-  ACCESS_TOKEN: ${GITLAB_CI_CD_ACCESS_TOKEN}
+  ACCESS_TOKEN: ${CI_CD_ACCESS_TOKEN}
   README_PATH: ./lp_factionsystem/Readme.md
   TAG: Fractionsystem
 before_script:
