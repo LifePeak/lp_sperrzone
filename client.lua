@@ -2,12 +2,16 @@
 local Sperrzonen = {}
 local ESX = nil
 ------------------------------------| Initial ESX |------------------------------------------
-Citizen.CreateThread(function()
-    while ESX == nil do
-      TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-      Citizen.Wait(0)
-      end
-end)
+if Config.UseOldESX then
+    Citizen.CreateThread(function()
+        while ESX == nil do
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        Citizen.Wait(0)
+        end
+    end)
+else
+    ESX = exports['es_extended']:getSharedObject()
+end
 ------------------------------------| Usfull Functions |-------------------------------------
 local function ImACop()
     local playerdata = ESX.GetPlayerData()

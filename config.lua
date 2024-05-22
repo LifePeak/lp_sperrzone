@@ -1,7 +1,7 @@
 Config = {}
 Config.Locale  = 'de'
 
-
+Config.UseOldESX = false -- If you use the old ESX (1.1) set this to true otherwise false
 Config.PoliceJobs      = {"police", "swat", "fib", "sheriff"}
 Config.Command         = "sperrzone"
 Config.CommandWayPoint = "sperrzonewp"

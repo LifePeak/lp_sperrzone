@@ -1,10 +1,14 @@
 ------------------------------------| Variable Declaration |---------------------------------
 
-local ESX = nil
 local Sperrzonen = {}
 local Id         = 0 -- unique Sperrzone Id
 ------------------------------------| Initial ESX |------------------------------------------
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+if Config.UseOldESX then
+    ESX = nil
+    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+else
+    ESX = exports['es_extended']:getSharedObject()
+end
 ------------------------------------| Usfull Functions |-------------------------------------
 
 local function IsJobPoliceJob(job)
